@@ -1,4 +1,4 @@
-# ChineseSimplified translation for "RT's Weapon Pack".
+# Chinese translation for "RT's Weapon Pack".
 ## Mod Name:RT's Weapon Pack
 ### Author:rhtstm
 ### Translator:Yuri
