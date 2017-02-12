@@ -1,1 +1,1 @@
-# ChineseSimplifield translation for "RT's Weapon Pack".
+# ChineseSimplified translation for "RT's Weapon Pack".
