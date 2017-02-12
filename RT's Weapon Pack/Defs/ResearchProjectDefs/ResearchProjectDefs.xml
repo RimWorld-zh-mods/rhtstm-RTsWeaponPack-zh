@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResearchProjectDefs>
+
+  
+  <ResearchProjectDef>
+    <defName>WeaponAssemblyTable_RT</defName>
+    <label>Weapon Assembly</label>
+    <description>This research will unlock the weapon assembly table that allows you to craft more weapons.</description>
+	<baseCost>300</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>Machining</li>
+    </prerequisites>
+	<researchViewX>13</researchViewX>
+	<researchViewY>2.5</researchViewY>
+  </ResearchProjectDef>
+
+
+ 
+  <ResearchProjectDef>
+    <defName>Pistols_RT</defName>
+    <label>Pistols</label>
+    <description>This reasearch will allow you to craft pistols at Weapon Assembly Table.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>WeaponAssemblyTable_RT</li>
+    </prerequisites>
+	<researchViewX>14</researchViewX>
+	<researchViewY>1</researchViewY>	
+  </ResearchProjectDef>
+
+
+  
+  <ResearchProjectDef>
+    <defName>Shotguns_RT</defName>
+    <label>Shotguns</label>
+    <description>This reasearch will allow you to craft shotguns at Weapon Assembly Table.</description>
+    <baseCost>700</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>WeaponAssemblyTable_RT</li>
+    </prerequisites>
+	<researchViewX>14</researchViewX>
+	<researchViewY>2</researchViewY>
+  </ResearchProjectDef>  
+  
+  <ResearchProjectDef>
+    <defName>Smgs_RT</defName>
+    <label>Submachine Guns</label>
+    <description>This reasearch will allow you to craft submachine guns at Weapon Assembly Table.</description>
+    <baseCost>800</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>Pistols_RT</li>
+    </prerequisites>
+	<researchViewX>15</researchViewX>
+	<researchViewY>1</researchViewY>		
+  </ResearchProjectDef>
+  
+  <ResearchProjectDef>
+    <defName>ThrowableGrenades_RT</defName>
+    <label>Throwable Grenades</label>
+    <description>This reasearch will allow you to craft throwable grenades at Weapon Assembly Table.</description>
+    <baseCost>800</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>WeaponAssemblyTable_RT</li>
+    </prerequisites>
+	<researchViewX>14</researchViewX>
+	<researchViewY>3</researchViewY>
+  </ResearchProjectDef>
+  
+  
+  <ResearchProjectDef>
+    <defName>Rifles_RT</defName>
+    <label>Rifles</label>
+    <description>This reasearch will allow you to craft rifles at Weapon Assembly Table.</description>
+    <baseCost>1200</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>WeaponAssemblyTable_RT</li>
+    </prerequisites>
+	<researchViewX>14</researchViewX>
+	<researchViewY>4</researchViewY>	
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>SniperRifles_RT</defName>
+    <label>Sniper Rifles</label>
+    <description>This reasearch will allow you to craft sniper rifles at Weapon Assembly Table.</description>
+    <baseCost>1000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>Rifles_RT</li>	  
+    </prerequisites>
+	<researchViewX>15</researchViewX>
+	<researchViewY>4</researchViewY>
+  </ResearchProjectDef>
+  
+ 
+  <ResearchProjectDef>
+    <defName>HeavyWeapons_RT</defName>
+    <label>Heavy Weapons</label>
+    <description>This reasearch will allow you to craft heavy weapons at Weapon Assembly Table.</description>
+    <baseCost>1500</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+	  <li>ThrowableGrenades_RT</li>
+    </prerequisites>
+	<researchViewX>15</researchViewX>
+	<researchViewY>3</researchViewY>	
+  </ResearchProjectDef>
+ 
+</ResearchProjectDefs>
+

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+	  <ThingDef Name="BaseGunSniperSniperRifle_rt" Abstract="True">
+		<category>Item</category>
+		<thingClass>ThingWithComps</thingClass>
+		<equipmentType>Primary</equipmentType>
+		<pathCost>10</pathCost>
+		<useHitPoints>True</useHitPoints>
+		<selectable>True</selectable>
+		<graphicData>
+		  <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+		</graphicData>
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<statBases>
+		  <MaxHitPoints>100</MaxHitPoints>
+		  <Flammability>1.0</Flammability>
+		  <DeteriorationRate>1</DeteriorationRate>
+		  <SellPriceFactor>0.5</SellPriceFactor>
+		</statBases>
+		<smeltable>True</smeltable>	
+		<costList>
+			<Steel>75</Steel>
+			<Component>2</Component>
+		</costList>		
+		<altitudeLayer>Item</altitudeLayer>
+		<alwaysHaulable>True</alwaysHaulable>
+		<tickerType>Never</tickerType>
+		<techLevel>Industrial</techLevel>
+		<thingCategories>
+		  <li>WeaponsRanged</li>
+		</thingCategories>
+		<inspectorTabs>
+		  <li>ITab_Art</li>
+		</inspectorTabs>
+		<comps>
+		  <li Class="CompProperties_Forbiddable"/>
+		  <li>
+			<compClass>CompEquippable</compClass>
+		  </li>
+		  <li>
+			<compClass>CompQuality</compClass>
+		  </li>
+		  <li Class="CompProperties_Art">
+			<nameMaker>ArtName_WeaponGun</nameMaker>
+			<descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+			<minQualityForArtistic>Excellent</minQualityForArtistic>
+		  </li>
+		</comps>
+	  </ThingDef>
+
+	  <ThingDef Name="BaseMakeableGunSniperRifle_rt" ParentName="BaseGunSniperSniperRifle_rt" Abstract="True">
+		<recipeMaker>
+		  <workSpeedStat>SmithingSpeed</workSpeedStat>
+		  <workSkill>Crafting</workSkill>
+		  <effectWorking>Smith</effectWorking>
+		  <soundWorking>Recipe_Smith</soundWorking>
+		  <recipeUsers>
+			<li>TableMachining</li>
+		  </recipeUsers>
+		  <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+		</recipeMaker>
+	  </ThingDef>
+
+
+	  <ThingDef Name="BaseHumanGunSniperRifle_rt" ParentName="BaseGunSniperSniperRifle_rt" Abstract="True">
+		<weaponTags>
+		  <li>Gun</li>
+		</weaponTags>
+	  </ThingDef>
+	  
+	  <ThingDef Name="BaseHumanMakeableGunSniperRifle_rt" ParentName="BaseMakeableGunSniperRifle_rt" Abstract="True">
+		<weaponTags>
+		  <li>Gun</li>
+		</weaponTags>
+	  </ThingDef>
+	  
+  <ThingDef Name="BaseSniperBullet" Abstract="True">
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>Bullet</thingClass>
+    <label>bullet</label>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+  </ThingDef>		  
+	  
+
+<!-- =============SteyrSSG08============== -->
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_308Winchester_rt</defName>
+    <label>308 Winchester</label>
+    <graphicData>
+      <texPath>Projectile/308 Winchester</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>30</damageAmountBase>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunSniperRifle_rt">
+    <defName>Gun_SteyrSSG08_rt</defName>
+    <label>Steyr SSG 08</label>
+    <graphicData>
+      <texPath>Weapon/SteyrSSG08</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>The Steyr SSG 08 is a highly accurate bolt-action sniper rifle, using .308 winchester cartridge.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>5.5</Mass>
+      <MarketValue>700</MarketValue>
+      <AccuracyTouch>0.50</AccuracyTouch>
+      <AccuracyShort>0.79</AccuracyShort>
+      <AccuracyMedium>0.87</AccuracyMedium>
+      <AccuracyLong>0.90</AccuracyLong>
+      <RangedWeapon_Cooldown>1.5</RangedWeapon_Cooldown>
+    </statBases>
+	<weaponTags>
+	  <li>Gun</li>
+      <li>SniperRifle</li>
+	</weaponTags>	
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_308Winchester_rt</projectileDef>
+        <warmupTime>3</warmupTime>
+        <range>53</range>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>30</ticksBetweenBurstShots>		
+        <soundCast>SteyrSSG08Shot</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>10</muzzleFlashScale>
+      </li>
+    </verbs>	
+  </ThingDef>
+ 
+
+
+
+	  
+<!-- =============L96A1============== -->
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_L96A1_rt</defName>
+    <label>L96A1 Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_L96A1_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>50</damageAmountBase>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunSniperRifle_rt">
+    <defName>Gun_L96A1_rt</defName>
+    <label>L96A1</label>
+    <graphicData>
+      <texPath>Weapon/L96A1</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>The L96A1 is an Accuracy International-produced sniper rifle and currently the sniper rifle of choice for the British Army.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>6.5</Mass>
+      <MarketValue>800</MarketValue>
+      <AccuracyTouch>0.50</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.80</AccuracyMedium>
+      <AccuracyLong>0.85</AccuracyLong>
+      <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+    </statBases>
+	<weaponTags>
+	  <li>Gun</li>
+      <li>SniperRifle</li>
+	</weaponTags>	
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_L96A1_rt</projectileDef>
+        <warmupTime>4.0</warmupTime>
+        <range>50</range>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>30</ticksBetweenBurstShots>		
+        <soundCast>L96A1Shot</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>10</muzzleFlashScale>
+      </li>
+    </verbs>	
+  </ThingDef>
+ 
+
+  
+<!-- =============AWM============== -->
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_AWM_rt</defName>
+    <label>AWM Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_AWM_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>55</damageAmountBase>
+      <speed>95</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunSniperRifle_rt">
+    <defName>Gun_AWM_rt</defName>
+    <label>AWM</label>
+    <graphicData>
+      <texPath>Weapon/AWM</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>The Accuracy International AWM (Arctic Warfare Magnum) is a bolt-action sniper rifle manufactured by Accuracy International designed for magnum rifle cartridge chamberings.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>6.9</Mass>
+      <MarketValue>810</MarketValue>
+      <AccuracyTouch>0.55</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.85</AccuracyMedium>
+      <AccuracyLong>0.87</AccuracyLong>
+      <RangedWeapon_Cooldown>1.70</RangedWeapon_Cooldown>
+    </statBases>
+	<weaponTags>
+	  <li>Gun</li>
+      <li>SniperRifle</li>
+	</weaponTags>	
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_L96A1_rt</projectileDef>
+        <warmupTime>4.0</warmupTime>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>30</ticksBetweenBurstShots>		
+        <range>50</range>
+        <soundCast>AWMShot</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>10</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>  
+  
+<!-- =============Barrett============== -->
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_Barrett_rt</defName>
+    <label>Barrett Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_Barrett_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>80</damageAmountBase>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunSniperRifle_rt">
+    <defName>Gun_Barrett_rt</defName>
+    <label>Barrett M82A1</label>
+    <graphicData>
+      <texPath>Weapon/Barrett</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This is a recoil-operated, semi-automatic anti-materiel rifle developed by the American Barrett Firearms Manufacturing company.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>13.5</Mass>
+      <MarketValue>1000</MarketValue>
+      <AccuracyTouch>0.55</AccuracyTouch>
+      <AccuracyShort>0.70</AccuracyShort>
+      <AccuracyMedium>0.87</AccuracyMedium>
+      <AccuracyLong>0.90</AccuracyLong>
+      <RangedWeapon_Cooldown>2.00</RangedWeapon_Cooldown>
+    </statBases>
+	<equippedStatOffsets>
+		<MoveSpeed>-0.23</MoveSpeed>
+	</equippedStatOffsets>
+	<weaponTags>
+	  <li>Gun</li>
+      <li>SniperRifle</li>
+	</weaponTags>	
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_Barrett_rt</projectileDef>
+        <warmupTime>3.0</warmupTime>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>30</ticksBetweenBurstShots>		
+        <range>55</range>
+        <soundCast>BarrettShot</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>13</muzzleFlashScale>
+		<!-- <forcedMissRadius>1</forcedMissRadius> -->
+      </li>
+    </verbs>	
+  </ThingDef>    
+  
+  
+  
+<!-- =============Vss Vintorez============== -->
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_VSSVintorez_rt</defName>
+    <label>VSSVintorez Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_VSSVintorez_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>30</damageAmountBase>
+      <speed>64</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunSniperRifle_rt">
+    <defName>Gun_VSSVintorez_rt</defName>
+    <label>VSS Vintorez</label>
+    <graphicData>
+      <texPath>Weapon/VSSVintorez</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This is a suppressed sniper rifle that is issued for undercover and clandestine operations.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>2.7</Mass>
+      <MarketValue>720</MarketValue>
+      <AccuracyTouch>0.55</AccuracyTouch>
+      <AccuracyShort>0.78</AccuracyShort>
+      <AccuracyMedium>0.83</AccuracyMedium>
+      <AccuracyLong>0.79</AccuracyLong>
+      <RangedWeapon_Cooldown>1.4</RangedWeapon_Cooldown>
+    </statBases>
+	<weaponTags>
+	  <li>Gun</li>
+      <li>SniperRifle</li>
+	</weaponTags>	
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_VSSVintorez_rt</projectileDef>
+        <warmupTime>4.0</warmupTime>
+        <range>40</range>
+        <burstShotCount>1</burstShotCount>
+        <ticksBetweenBurstShots>30</ticksBetweenBurstShots>
+        <soundCast>VSSVintorezShot</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>5</muzzleFlashScale>
+      </li>
+    </verbs>	
+  </ThingDef>    
+    
+  
+<!-- =============Dragunov============== -->
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_Dragunov_rt</defName>
+    <label>Dragunov Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_Dragunov_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <speed>64</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunSniperRifle_rt">
+    <defName>Gun_Dragunov_rt</defName>
+    <label>Dragunov</label>
+    <graphicData>
+      <texPath>Weapon/Dragunov</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This is a suppressed sniper rifle that is issued for undercover and clandestine operations.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>5</Mass>
+      <MarketValue>720</MarketValue>
+      <AccuracyTouch>0.50</AccuracyTouch>
+      <AccuracyShort>0.60</AccuracyShort>
+      <AccuracyMedium>0.88</AccuracyMedium>
+      <AccuracyLong>0.83</AccuracyLong>
+      <RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown>
+    </statBases>
+	<weaponTags>
+      <li>Gun</li>
+      <li>SniperRifle</li>
+	</weaponTags>	
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_Dragunov_rt</projectileDef>
+        <warmupTime>4.0</warmupTime>
+        <range>40</range>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>60</ticksBetweenBurstShots>
+        <soundCast>DragunovShot</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>5</muzzleFlashScale>
+      </li>
+    </verbs>	
+  </ThingDef>    
+  
+  
+  
+ </ThingDefs> 

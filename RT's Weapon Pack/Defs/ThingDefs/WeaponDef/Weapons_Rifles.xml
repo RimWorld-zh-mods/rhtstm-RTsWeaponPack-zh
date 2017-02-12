@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+	  <ThingDef Name="BaseGunRifle_rt" Abstract="True">
+		<category>Item</category>
+		<thingClass>ThingWithComps</thingClass>
+		<equipmentType>Primary</equipmentType>
+		<pathCost>10</pathCost>
+		<useHitPoints>True</useHitPoints>
+		<selectable>True</selectable>
+		<graphicData>
+		  <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+		</graphicData>
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<statBases>
+		  <MaxHitPoints>100</MaxHitPoints>
+		  <Flammability>1.0</Flammability>
+		  <DeteriorationRate>1</DeteriorationRate>
+		  <SellPriceFactor>0.5</SellPriceFactor>
+		</statBases>
+		<smeltable>True</smeltable>	
+		<costList>
+			<Steel>60</Steel>
+			<Component>2</Component>
+		</costList>		
+		<altitudeLayer>Item</altitudeLayer>
+		<alwaysHaulable>True</alwaysHaulable>
+		<tickerType>Never</tickerType>
+		<techLevel>Industrial</techLevel>
+		<thingCategories>
+		  <li>WeaponsRanged</li>
+		</thingCategories>
+		<inspectorTabs>
+		  <li>ITab_Art</li>
+		</inspectorTabs>
+		<comps>
+		  <li Class="CompProperties_Forbiddable"/>
+		  <li>
+			<compClass>CompEquippable</compClass>
+		  </li>
+		  <li>
+			<compClass>CompQuality</compClass>
+		  </li>
+		  <li Class="CompProperties_Art">
+			<nameMaker>ArtName_WeaponGun</nameMaker>
+			<descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+			<minQualityForArtistic>Excellent</minQualityForArtistic>
+		  </li>
+		</comps>
+	  </ThingDef>
+
+	  <ThingDef Name="BaseMakeableGunRifle_rt" ParentName="BaseGunRifle_rt" Abstract="True">
+		<recipeMaker>
+		  <workSpeedStat>SmithingSpeed</workSpeedStat>
+		  <workSkill>Crafting</workSkill>
+		  <effectWorking>Smith</effectWorking>
+		  <soundWorking>Recipe_Smith</soundWorking>
+		  <recipeUsers>
+			<li>TableMachining</li>
+		  </recipeUsers>
+		  <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+		</recipeMaker>
+	  </ThingDef>
+
+
+	  <ThingDef Name="BaseHumanGunRifle_rt" ParentName="BaseGunRifle_rt" Abstract="True">
+		<weaponTags>
+		  <li>Gun</li>
+		</weaponTags>
+	  </ThingDef>
+	  
+	  <ThingDef Name="BaseHumanMakeableGunRifle_rt" ParentName="BaseMakeableGunRifle_rt" Abstract="True">
+		<weaponTags>
+		  <li>Gun</li>
+		</weaponTags>
+	  </ThingDef>
+	  
+  <ThingDef Name="BaseRifleBullet" Abstract="True">
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>Bullet</thingClass>
+    <label>bullet</label>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+  </ThingDef>
+  
+<!-- =============AK12============== -->
+
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_AK12_rt</defName>
+    <label>AK12 Bullet</label>
+    <graphicData>
+      <texPath>Projectile/5.56X45mmNATO</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>16</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_AK12_rt</defName>
+    <label>AK-12</label>
+    <graphicData>
+      <texPath>Weapon/AK-12</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>The Kalashnikov AK-12 is the newest derivative of the Soviet/Russian AK-pattern series of assault rifles and was proposed for possible general issue to the Russian Army.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>3.3</Mass>
+	  <MarketValue>650</MarketValue>
+	  <AccuracyTouch>0.68</AccuracyTouch>
+	  <AccuracyShort>0.79</AccuracyShort>
+	  <AccuracyMedium>0.75</AccuracyMedium>
+	  <AccuracyLong>0.45</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_AK12_rt</projectileDef>
+        <warmupTime>1.6</warmupTime>
+		<range>44</range>
+		<burstShotCount>3</burstShotCount>
+		<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+		<soundCast>AK12Shot</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+    </verbs>
+  </ThingDef>
+	  
+
+<!-- ===================LVOA-C=========================== --> 
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_LVOAC_rt</defName>
+    <label>LVOAC Bullet</label>
+    <graphicData>
+      <texPath>Projectile/5.56X45mmNATO</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>14</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_LVOAC_rt</defName>
+    <label>LVOA-C</label>
+    <graphicData>
+      <texPath>Weapon/LVOA-C</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>The LVOA-C (manufactured by War Sport Industries) is a direct gas-impingement operated rifle based on the AR-15 platform. This assault rifle features both chamber options of 5.56X45mm NATO rounds and .223 Wylde.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>3.2</Mass>
+	  <MarketValue>700</MarketValue>
+	  <AccuracyTouch>0.68</AccuracyTouch>
+	  <AccuracyShort>0.80</AccuracyShort>
+	  <AccuracyMedium>0.75</AccuracyMedium>
+	  <AccuracyLong>0.60</AccuracyLong>	  
+	  <RangedWeapon_Cooldown>0.88</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_LVOAC_rt</projectileDef>
+        <warmupTime>1.5</warmupTime>
+		<range>41</range>
+		<burstShotCount>4</burstShotCount>
+		<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+		<soundCast>LVOAShot</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+    </verbs>	
+  </ThingDef> 	  	  
+	  
+<!-- ===================AAC Honey Badger =========================== --> 
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_AACHoneyBadger_rt</defName>
+    <label>AACHoneyBadger Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_AACHoneyBadger_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>13</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_AACHoneyBadger_rt</defName>
+    <label>AAC Honey Badger</label>
+    <graphicData>
+      <texPath>Weapon/AACHoneyBadger</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This is a personal defense weapon that can deal damage to targets in a subsonic velocity and meaningful range.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>3</Mass>
+	  <MarketValue>650</MarketValue>
+	  <AccuracyTouch>0.68</AccuracyTouch>
+	  <AccuracyShort>0.86</AccuracyShort>
+	  <AccuracyMedium>0.78</AccuracyMedium>
+	  <AccuracyLong>0.50</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_AACHoneyBadger_rt</projectileDef>
+        <warmupTime>1.0</warmupTime>
+		<range>40</range>
+		<burstShotCount>3</burstShotCount>
+		<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+		<soundCast>AACHoneyBadgerShot</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+    </verbs>
+  </ThingDef> 	  
+	  
+	  
+	  <!-- ===================IWI Tavor=========================== --> 
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_IWITavor_rt</defName>
+    <label>IWI Tavor Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_IWITavor_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>11</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_IWITavor_rt</defName>
+    <label>IWI Tavor</label>
+    <graphicData>
+      <texPath>Weapon/IWI Tavor </texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This assault rifle was especially created to answer these  varied demands, thus distinguishing itself as the ultimate weapon of the 21st century.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>3.3</Mass>
+	  <MarketValue>650</MarketValue>
+	  <AccuracyTouch>0.75</AccuracyTouch>
+	  <AccuracyShort>0.85</AccuracyShort>
+	  <AccuracyMedium>0.75</AccuracyMedium>
+	  <AccuracyLong>0.50</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_IWITavor_rt</projectileDef>
+        <warmupTime>1.8</warmupTime>
+		<range>38</range>
+		<burstShotCount>3</burstShotCount>
+		<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+		<soundCast>IWITavorShot</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+    </verbs>
+  </ThingDef> 
+  
+<!-- ===================FN Fal=========================== --> 
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_FNFAL_rt</defName>
+    <label>FNFAL Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_FNFAL_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>12</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_FNFAL_rt</defName>
+    <label>FN FAL</label>
+    <graphicData>
+      <texPath>Weapon/FN FAL</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>The FN FAL produced since the early 1950 by Belgian Fabrique Nationale de Herstal. Still produced and used to this date.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>4.5</Mass>
+	  <MarketValue>500</MarketValue>
+	  <AccuracyTouch>0.65</AccuracyTouch>
+	  <AccuracyShort>0.80</AccuracyShort>
+	  <AccuracyMedium>0.70</AccuracyMedium>
+	  <AccuracyLong>0.60</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.65</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_FNFAL_rt</projectileDef>
+        <warmupTime>1.9</warmupTime>
+		<range>40</range>
+		<burstShotCount>3</burstShotCount>
+		<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+		<soundCast>ShotAssaultRifle</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+    </verbs>
+  </ThingDef>  
+  
+  <!-- ===================AK 5C=========================== --> 
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_AK5C_rt</defName>
+    <label>AK5C Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_AK5C_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>13</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_AK5C_rt</defName>
+    <label>AK 5C</label>
+    <graphicData>
+      <texPath>Weapon/AK5C</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This rifle is the altered version of the FN Fal. Introduced in the 1985s and still in use today. AK5C is the latest version with a shortened barrel and updated sight mounts.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>4.5</Mass>
+	  <MarketValue>700</MarketValue>
+	  <AccuracyTouch>0.65</AccuracyTouch>
+	  <AccuracyShort>0.75</AccuracyShort>
+	  <AccuracyMedium>0.70</AccuracyMedium>
+	  <AccuracyLong>0.65</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.65</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_AK5C_rt</projectileDef>
+        <warmupTime>1.9</warmupTime>
+		<range>42</range>
+		<burstShotCount>3</burstShotCount>
+		<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+		<soundCast>ShotAssaultRifle</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+    </verbs>
+  </ThingDef>  
+
+
+
+	  
+<!-- =============QBZ-95============== -->
+
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_QBZ95_rt</defName>
+    <label>QBZ95 Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_QBZ95_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>10</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_QBZ95_rt</defName>
+    <label>QBZ-95</label>
+    <graphicData>
+      <texPath>Weapon/QBZ-95</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This is a bullpup style assault rifle, using a newly developed 5.8×42mm DBP87 ammunition type.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>3.3</Mass>
+	  <MarketValue>650</MarketValue>
+	  <AccuracyTouch>0.68</AccuracyTouch>
+	  <AccuracyShort>0.86</AccuracyShort>
+	  <AccuracyMedium>0.79</AccuracyMedium>
+	  <AccuracyLong>0.55</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.95</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+		  <li>
+			<verbClass>Verb_Shoot</verbClass>
+			<hasStandardCommand>true</hasStandardCommand>
+			<projectileDef>Bullet_QBZ95_rt</projectileDef>
+			<warmupTime>1.9</warmupTime>
+			<range>35</range>
+			<burstShotCount>3</burstShotCount>
+			<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+			<soundCast>ShotAssaultRifle</soundCast>
+			<soundCastTail>GunTail_Light</soundCastTail>
+			<muzzleFlashScale>9</muzzleFlashScale>
+		  </li>
+    </verbs>
+  </ThingDef>	
+
+  
+<!-- =============HKG36C============== -->
+
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_HKG36C_rt</defName>
+    <label>HKG36C Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_HKG36C_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>10</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_HKG36C_rt</defName>
+    <label>HK G36C</label>
+    <graphicData>
+      <texPath>Weapon/HK_G36C</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This is a 5.56×45mm assault rifle designed in the early 1990s.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>3.6</Mass>
+	  <MarketValue>650</MarketValue>
+	  <AccuracyTouch>0.70</AccuracyTouch>
+	  <AccuracyShort>0.69</AccuracyShort>
+	  <AccuracyMedium>0.80</AccuracyMedium>
+	  <AccuracyLong>0.51</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+		  <li>
+			<verbClass>Verb_Shoot</verbClass>
+			<hasStandardCommand>true</hasStandardCommand>
+			<projectileDef>Bullet_HKG36C_rt</projectileDef>
+			<warmupTime>1.9</warmupTime>
+			<range>27</range>
+			<burstShotCount>4</burstShotCount>
+			<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+			<soundCast>ShotAssaultRifle</soundCast>
+			<soundCastTail>GunTail_Light</soundCastTail>
+			<muzzleFlashScale>9</muzzleFlashScale>
+		  </li>
+    </verbs>
+  </ThingDef>		  
+<!-- =============AK47============== -->
+
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_AK47_rt</defName>
+    <label>AK 47 Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_AK47_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>18</damageAmountBase>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_AK47_rt</defName>
+    <label>AK-47</label>
+    <graphicData>
+      <texPath>Weapon/AK47</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>The AK-47 is a Russian assault rifle designed in 1947 by Mikhail Kalashnikov and first used in 1949.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>3.5</Mass>
+	  <MarketValue>550</MarketValue>
+	  <AccuracyTouch>0.68</AccuracyTouch>
+	  <AccuracyShort>0.79</AccuracyShort>
+	  <AccuracyMedium>0.74</AccuracyMedium>
+	  <AccuracyLong>0.34</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_AK47_rt</projectileDef>
+        <warmupTime>1.9</warmupTime>
+		<range>44</range>
+		<burstShotCount>3</burstShotCount>
+		<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+		<soundCast>ak47Shot</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+		<forcedMissRadius>1.0</forcedMissRadius>
+	  </li>
+    </verbs>
+  </ThingDef>
+
+<!-- ===============M1 Garand============= -->
+
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_M1_rt</defName>
+    <label>M1 Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_M1_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>15</damageAmountBase>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_M1Garand_rt</defName>
+    <label>M1 Garand</label>
+    <graphicData>
+      <texPath>Weapon/M1Garand</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>The M1 Garand is a semi-automatic rifle that was the U.S. service rifle during World War II.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>4.3</Mass>
+	  <MarketValue>490</MarketValue>
+	  <AccuracyTouch>0.61</AccuracyTouch>
+	  <AccuracyShort>0.83</AccuracyShort>
+	  <AccuracyMedium>0.79</AccuracyMedium>
+	  <AccuracyLong>0.62</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.95</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_M1_rt</projectileDef>
+        <warmupTime>1.9</warmupTime>
+		<range>44</range>
+		<burstShotCount>1</burstShotCount>
+		<ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+		<soundCast>ShotAssaultRifle</soundCast>
+		<soundCastTail>GunTail_Heavy</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+		<forcedMissRadius>1</forcedMissRadius>		
+	  </li>
+    </verbs>
+  </ThingDef>  
+<!-- ===============M4============= -->
+
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_M4_rt</defName>
+    <label>M4 Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_M4_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>10</damageAmountBase>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_M4A4_rt</defName>
+    <label>M4</label>
+    <graphicData>
+      <texPath>Weapon/M4</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This rifle is heavily used by the United States Armed Forces and is replacing the M16 rifle in most United States Army and United States Marine Corps combat units as the primary infantry weapon.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>3.5</Mass>
+	  <MarketValue>650</MarketValue>
+	  <AccuracyTouch>0.68</AccuracyTouch>
+	  <AccuracyShort>0.86</AccuracyShort>
+	  <AccuracyMedium>0.79</AccuracyMedium>
+	  <AccuracyLong>0.54</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_M4_rt</projectileDef>
+        <warmupTime>1.9</warmupTime>
+		<range>41</range>
+		<burstShotCount>3</burstShotCount>
+		<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+		<soundCast>M4Shot</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+		<forcedMissRadius>1.0</forcedMissRadius>
+	  </li>
+    </verbs>
+  </ThingDef>  
+
+
+<!-- ===================G3A3=========================== --> 
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_G3A3_rt</defName>
+    <label>G3A3 Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_G3A3_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>14</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_G3A3_rt</defName>
+    <label>HK G3A3</label>
+    <graphicData>
+      <texPath>Weapon/G3A3</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This rifle is a battle rifle developed in the 1950s by the German armament manufacturer Heckler Koch GmbH in collaboration with the Spanish state-owned design and development agency CETME.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>4.2</Mass>
+	  <MarketValue>700</MarketValue>
+	  <AccuracyTouch>0.65</AccuracyTouch>
+	  <AccuracyShort>0.72</AccuracyShort>
+	  <AccuracyMedium>0.80</AccuracyMedium>
+	  <AccuracyLong>0.75</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_G3A3_rt</projectileDef>
+        <warmupTime>1.9</warmupTime>
+		<range>35</range>
+		<burstShotCount>4</burstShotCount>
+		<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+		<soundCast>ShotAssaultRifle</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+    </verbs>
+  </ThingDef>  
+
+<!-- ===================Steyr_Stg.77AUG=========================== --> 
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_Steyr_Stg77AUG_rt</defName>
+    <label>SteyrStg.77AUG  Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_Steyr_Stg.77AUG_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>11</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_Steyr_Stg77AUG_rt</defName>
+    <label>Steyr Stg.77AUG</label>
+    <graphicData>
+      <texPath>Weapon/Steyr_Stg.77AUG</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This rifle is a bullpup automatic rifle, is a selective-fire weapon with a conventional gas-piston-operated action that fires from a closed bolt.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>3.6</Mass>
+	  <MarketValue>550</MarketValue>
+	  <AccuracyTouch>0.65</AccuracyTouch>
+	  <AccuracyShort>0.70</AccuracyShort>
+	  <AccuracyMedium>0.80</AccuracyMedium>
+	  <AccuracyLong>0.72</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.75</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_Steyr_Stg77AUG_rt</projectileDef>
+        <warmupTime>1.9</warmupTime>
+		<range>34</range>
+		<burstShotCount>5</burstShotCount>
+		<ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+		<soundCast>AUGShot</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+    </verbs>
+  </ThingDef>
+
+<!-- ===================XM8=========================== --> 
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_XM8_rt</defName>
+    <label>XM8 Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_XM8_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>13</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_XM8_rt</defName>
+    <label>XM8</label>
+    <graphicData>
+      <texPath>Weapon/XM8</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This rifle was the U.S. military designation for a lightweight assault rifle system under development by the United States Army from the late 1990s to early 2000s.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>3.4</Mass>
+	  <MarketValue>650</MarketValue>
+	  <AccuracyTouch>0.65</AccuracyTouch>
+	  <AccuracyShort>0.79</AccuracyShort>
+	  <AccuracyMedium>0.75</AccuracyMedium>
+	  <AccuracyLong>0.68</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.75</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_XM8_rt</projectileDef>
+        <warmupTime>1.9</warmupTime>
+		<range>30</range>
+		<burstShotCount>4</burstShotCount>
+		<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+		<soundCast>XM8Shot</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+    </verbs>
+  </ThingDef>
+  
+<!-- ===================FN F2000=========================== --> 
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_FNF2000_rt</defName>
+    <label>FNF2000 Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_FNF2000_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>11</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_FNF2000_rt</defName>
+    <label>FN F2000</label>
+    <graphicData>
+      <texPath>Weapon/FNF2000</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This is a gas operated, fully automatic and ambidextrous bullpup rifle.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>3.6</Mass>
+	  <MarketValue>600</MarketValue>
+	  <AccuracyTouch>0.65</AccuracyTouch>
+	  <AccuracyShort>0.74</AccuracyShort>
+	  <AccuracyMedium>0.82</AccuracyMedium>
+	  <AccuracyLong>0.75</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_FNF2000_rt</projectileDef>
+        <warmupTime>1.9</warmupTime>
+		<range>28</range>
+		<burstShotCount>4</burstShotCount>
+		<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+		<soundCast>ShotAssaultRifle</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+    </verbs>
+  </ThingDef> 
+  
+  
+ <!-- ===============M14============= -->
+
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_M14_rt</defName>
+    <label>M14 Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_M14_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>17</damageAmountBase>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_M14_rt</defName>
+    <label>M14</label>
+    <graphicData>
+      <texPath>Weapon/M14</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This is an American selective fire automatic rifle. It was used for U.S. Army, Navy and Marine Corps basic and advanced individual training (AIT) from the mid-1960s to the early 1970s.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>4.1</Mass>
+	  <MarketValue>520</MarketValue>
+	  <AccuracyTouch>0.56</AccuracyTouch>
+	  <AccuracyShort>0.78</AccuracyShort>
+	  <AccuracyMedium>0.69</AccuracyMedium>
+	  <AccuracyLong>0.49</AccuracyLong>
+	  <RangedWeapon_Cooldown>1.1</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_M14_rt</projectileDef>
+        <warmupTime>1.9</warmupTime>
+		<range>45</range>
+		<burstShotCount>4</burstShotCount>
+		<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+		<soundCast>ShotAssaultRifle</soundCast>
+		<soundCastTail>GunTail_Heavy</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+		<forcedMissRadius>1</forcedMissRadius>
+	  </li>
+    </verbs>
+  </ThingDef>  
+  
+<!-- ===================SCAR-L=========================== --> 
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_SCAR_rt</defName>
+    <label>SCAR-L Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_SCAR_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>13</damageAmountBase>
+      <speed>75</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_SCAR_rt</defName>
+    <label>FN SCAR-L</label>
+    <graphicData>
+      <texPath>Weapon/FN Scar_L</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This modular rifle developed for special operations teams, light variant fires 5.56x45mm NATO.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>3.1</Mass>
+	  <MarketValue>470</MarketValue>
+	  <AccuracyTouch>0.65</AccuracyTouch>
+	  <AccuracyShort>0.70</AccuracyShort>
+	  <AccuracyMedium>0.78</AccuracyMedium>
+	  <AccuracyLong>0.70</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.80</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_SCAR_rt</projectileDef>
+        <warmupTime>1.9</warmupTime>
+		<range>35</range>
+		<burstShotCount>4</burstShotCount>
+		<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+		<soundCast>SCARLShot</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+    </verbs>
+  </ThingDef>   
+  
+<!-- ===================Famas========================== --> 
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_Famas_rt</defName>
+    <label>Famas Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_Famas_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>8</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_Famas_rt</defName>
+    <label>Famas</label>
+    <graphicData>
+      <texPath>Weapon/Famas</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>The FAMAS is a bullpup-styled assault rifle designed and manufactured in France.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>3.6</Mass>
+	  <MarketValue>490</MarketValue>
+	  <AccuracyTouch>0.70</AccuracyTouch>
+	  <AccuracyShort>0.80</AccuracyShort>
+	  <AccuracyMedium>0.75</AccuracyMedium>
+	  <AccuracyLong>0.60</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.55</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_Famas_rt</projectileDef>
+        <warmupTime>1.9</warmupTime>
+		<range>25</range>
+		<burstShotCount>3</burstShotCount>
+		<ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+		<soundCast>FamasShot</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+    </verbs>
+  </ThingDef>     
+  
+<!-- ===================L85A2=========================== --> 
+  <ThingDef ParentName="BaseRifleBullet">
+    <defName>Bullet_L85A2_rt</defName>
+    <label>L85A2 Bullet</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_L85A2_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>11</damageAmountBase>
+      <speed>80</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunRifle_rt">
+    <defName>Gun_L85A2_rt</defName>
+    <label>L85A2</label>
+    <graphicData>
+      <texPath>Weapon/L85A2</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This is a selective fire, gas-operated assault rifle. The rifle has been the standard issue service rifle of the British Armed Forces since 1987.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+	  <Mass>5</Mass>
+	  <MarketValue>680</MarketValue>
+	  <AccuracyTouch>0.65</AccuracyTouch>
+	  <AccuracyShort>0.72</AccuracyShort>
+	  <AccuracyMedium>0.85</AccuracyMedium>
+	  <AccuracyLong>0.75</AccuracyLong>
+	  <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+	</statBases>
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+	  <li>
+		<verbClass>Verb_Shoot</verbClass>
+		<hasStandardCommand>true</hasStandardCommand>
+		<projectileDef>Bullet_L85A2_rt</projectileDef>
+        <warmupTime>1.9</warmupTime>
+		<range>31</range>
+		<burstShotCount>5</burstShotCount>
+		<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+		<soundCast>L85A2Shot</soundCast>
+		<soundCastTail>GunTail_Light</soundCastTail>
+		<muzzleFlashScale>9</muzzleFlashScale>
+	  </li>
+    </verbs>
+  </ThingDef>     
+    
+  
+  
+ </ThingDefs> 

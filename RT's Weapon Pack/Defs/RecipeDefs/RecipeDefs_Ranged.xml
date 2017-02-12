@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RecipeDefs>
+
+
+   <RecipeDef>
+    <defName>TCrossbowCraft</defName>
+    <label>Make Tactical Crossbow</label>
+    <description>Craft Tactical Crossbow.</description>
+    <jobString>Making Tactical Crossbow.</jobString>
+	<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+	<workSpeedStat>SmithingSpeed</workSpeedStat>
+    <workAmount>20000</workAmount>
+	<workSkill>Crafting</workSkill>
+    <products>
+        <Bow_TCrossbow_rt>1</Bow_TCrossbow_rt>
+    </products>
+    <ingredients>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Steel</li>
+				</thingDefs>
+			</filter>
+			<count>100</count>
+		</li>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Component</li>
+				</thingDefs>
+			</filter>
+			<count>2</count>
+		</li>
+    </ingredients>
+	<fixedIngredientFilter>
+         <thingDefs>
+            <li>Steel</li>
+			<li>Component</li>
+         </thingDefs>
+    </fixedIngredientFilter>
+	<recipeUsers>
+		<li>ElectricSmithy</li>
+	</recipeUsers>
+  </RecipeDef>
+
+
+
+
+<!-- ===========--> 
+   <RecipeDef>
+    <defName>CompoundbowCraft</defName>
+    <label>Make Compound Bow</label>
+    <description>Craft Compound Bow.</description>
+    <jobString>Making Compound Bow.</jobString>
+	<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+	<workSpeedStat>SmithingSpeed</workSpeedStat>
+    <workAmount>12000</workAmount>
+	<workSkill>Crafting</workSkill>
+    <products>
+        <Bow_Compound_rt>1</Bow_Compound_rt>
+    </products>
+    <ingredients>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Steel</li>
+				</thingDefs>
+			</filter>
+			<count>80</count>
+		</li>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Component</li>
+				</thingDefs>
+			</filter>
+			<count>2</count>
+		</li>
+    </ingredients>
+	<fixedIngredientFilter>
+         <thingDefs>
+            <li>Steel</li>
+			<li>Component</li>
+         </thingDefs>
+    </fixedIngredientFilter>
+	<recipeUsers>
+		<li>ElectricSmithy</li>
+		<li>FueledSmithy</li>
+	</recipeUsers>
+  </RecipeDef>
+ 
+
+  
+</RecipeDefs>

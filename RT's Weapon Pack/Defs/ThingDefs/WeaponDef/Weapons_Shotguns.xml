@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+	  <ThingDef Name="BaseGunShotgun_rt" Abstract="True">
+		<category>Item</category>
+		<thingClass>ThingWithComps</thingClass>
+		<equipmentType>Primary</equipmentType>
+		<pathCost>10</pathCost>
+		<useHitPoints>True</useHitPoints>
+		<selectable>True</selectable>
+		<graphicData>
+		  <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+		</graphicData>
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<statBases>
+		  <MaxHitPoints>100</MaxHitPoints>
+		  <Flammability>1.0</Flammability>
+		  <DeteriorationRate>1</DeteriorationRate>
+		  <SellPriceFactor>0.5</SellPriceFactor>
+		</statBases>
+		<smeltable>True</smeltable>	
+		<costList>
+			<Steel>50</Steel>
+			<Component>2</Component>
+		</costList>		
+		<altitudeLayer>Item</altitudeLayer>
+		<alwaysHaulable>True</alwaysHaulable>
+		<tickerType>Never</tickerType>
+		<techLevel>Industrial</techLevel>
+		<thingCategories>
+		  <li>WeaponsRanged</li>
+		</thingCategories>
+		<inspectorTabs>
+		  <li>ITab_Art</li>
+		</inspectorTabs>
+		<comps>
+		  <li Class="CompProperties_Forbiddable"/>
+		  <li>
+			<compClass>CompEquippable</compClass>
+		  </li>
+		  <li>
+			<compClass>CompQuality</compClass>
+		  </li>
+		  <li Class="CompProperties_Art">
+			<nameMaker>ArtName_WeaponGun</nameMaker>
+			<descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+			<minQualityForArtistic>Excellent</minQualityForArtistic>
+		  </li>
+		</comps>
+	  </ThingDef>
+
+	  <ThingDef Name="BaseMakeableShotgun_rt" ParentName="BaseGunShotgun_rt" Abstract="True">
+		<recipeMaker>
+		  <workSpeedStat>SmithingSpeed</workSpeedStat>
+		  <workSkill>Crafting</workSkill>
+		  <effectWorking>Smith</effectWorking>
+		  <soundWorking>Recipe_Smith</soundWorking>
+		  <recipeUsers>
+			<li>TableMachining</li>
+		  </recipeUsers>
+		  <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+		</recipeMaker>
+	  </ThingDef>
+
+
+	  <ThingDef Name="BaseHumanGunShotgun_rt" ParentName="BaseGunShotgun_rt" Abstract="True">
+		<weaponTags>
+		  <li>Gun</li>
+		</weaponTags>
+	  </ThingDef>
+	  
+	  <ThingDef Name="BaseHumanMakeableGunShotgun_rt" ParentName="BaseMakeableShotgun_rt" Abstract="True">
+		<weaponTags>
+		  <li>Gun</li>
+		</weaponTags>
+	  </ThingDef>
+	  
+	  
+  <ThingDef Name="BaseShotGBullet" Abstract="True">
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>Bullet</thingClass>
+    <label>bullet</label>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+  </ThingDef>
+
+<!-- ===============USAS-12=============== -->
+
+  <ThingDef ParentName="BaseShotGBullet">
+    <defName>Bullet_USAS12_rt</defName>
+    <label>USAS12 Blast</label>
+    <graphicData>
+      <texPath>Projectile/12 Gauge</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>18</damageAmountBase>
+      <speed>75</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunShotgun_rt">
+    <defName>Gun_USAS12_rt</defName>
+    <label>USAS-12</label>
+    <graphicData>
+      <texPath>Weapon/USAS-12</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This is a gas-operated shotgun.Designed to provide sustained firepower in close-combat scenarios.</description>
+    <soundInteract>InteractRifle</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+      <Mass>5.4</Mass>
+      <MarketValue>550</MarketValue>
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyMedium>0.70</AccuracyMedium>
+      <AccuracyLong>0.65</AccuracyLong>
+      <RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+    </statBases>	
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_USAS12_rt</projectileDef>
+        <warmupTime>1.5</warmupTime>
+        <range>26</range>
+		<burstShotCount>4</burstShotCount>
+		<ticksBetweenBurstShots>25</ticksBetweenBurstShots>
+        <soundCast>USAS12Shot</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>	
+  </ThingDef>
+
+	  
+<!-- ===============M1014=============== -->
+
+  <ThingDef ParentName="BaseShotGBullet">
+    <defName>Bullet_M1014_rt</defName>
+    <label>M1014 Blast</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_M1014_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>15</damageAmountBase>
+      <speed>65</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunShotgun_rt">
+    <defName>Gun_M1014_rt</defName>
+    <label>M1014</label>
+    <graphicData>
+      <texPath>Weapon/M1014</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This is a gas-operated shotgun.</description>
+    <soundInteract>InteractShotgun</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+      <Mass>3.8</Mass>
+      <MarketValue>500</MarketValue>
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyMedium>0.70</AccuracyMedium>
+      <AccuracyLong>0.60</AccuracyLong>
+      <RangedWeapon_Cooldown>0.65</RangedWeapon_Cooldown>
+    </statBases>	
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_M1014_rt</projectileDef>
+        <warmupTime>0.9</warmupTime>
+        <range>24</range>
+		<burstShotCount>3</burstShotCount>
+		<ticksBetweenBurstShots>35</ticksBetweenBurstShots>
+        <soundCast>M1040Shot</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+
+
+  
+	  
+<!-- ===============DP-12=============== -->
+
+  <ThingDef ParentName="BaseShotGBullet">
+    <defName>Bullet_DP12_rt</defName>
+    <label>DP_12 Blast</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_DP12_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>18</damageAmountBase>
+      <speed>65</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunShotgun_rt">
+    <defName>Gun_DP12_rt</defName>
+    <label>DP-12</label>
+    <graphicData>
+      <texPath>Weapon/DP-12</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This is a 2 barrel double pump shotgun.</description>
+    <soundInteract>InteractShotgun</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+      <Mass>4.5</Mass>
+      <MarketValue>500</MarketValue>
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.85</AccuracyShort>
+      <AccuracyMedium>0.80</AccuracyMedium>
+      <AccuracyLong>0.65</AccuracyLong>
+      <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+    </statBases>	
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_DP12_rt</projectileDef>
+        <warmupTime>0.9</warmupTime>
+        <range>24</range>
+		<burstShotCount>2</burstShotCount>
+		<ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+        <soundCast>DP12Shot</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+  </ThingDef>
+
+  
+
+  
+<!-- ===============Winchester 1887=============== -->
+
+  <ThingDef ParentName="BaseShotGBullet">
+    <defName>Bullet_Winchester87_rt</defName>
+    <label>Winchester87 Blast</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_Winchester87_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <speed>65</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunShotgun_rt">
+    <defName>Gun_Winchester87_rt</defName>
+    <label>Winchester 1887</label>
+    <graphicData>
+      <texPath>Weapon/Winchester87</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This is a lever-action shotgun.</description>
+    <soundInteract>InteractShotgun</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+      <Mass>3.6</Mass>
+      <MarketValue>450</MarketValue>
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.80</AccuracyShort>
+      <AccuracyMedium>0.83</AccuracyMedium>
+      <AccuracyLong>0.68</AccuracyLong>
+      <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+    </statBases>	
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_Winchester87_rt</projectileDef>
+        <warmupTime>0.9</warmupTime>
+        <range>25</range>
+<!--		<burstShotCount>1</burstShotCount>
+		<ticksBetweenBurstShots>20</ticksBetweenBurstShots>	-->	
+        <soundCast>Winchester1887Shot</soundCast> 
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>	
+  </ThingDef>  
+  
+  
+<!-- ===============SPAS-12=============== -->
+
+  <ThingDef ParentName="BaseShotGBullet">
+    <defName>Bullet_SPAS12_rt</defName>
+    <label>SPAS-12 Blast</label>
+    <graphicData>
+      <texPath>Projectile/Bullet_SPAS12_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>25</damageAmountBase>
+      <speed>60</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanGunShotgun_rt">
+    <defName>Gun_SPAS12_rt</defName>
+    <label>SPAS-12</label>
+    <graphicData>
+      <texPath>Weapon/SPAS_12</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This is a semi-automatic combat shotgun manufactured by Italian firearms company Franchi from 1979 to 2000.</description>
+    <soundInteract>InteractShotgun</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+      <Mass>4.4</Mass>
+      <MarketValue>490</MarketValue>
+      <AccuracyTouch>0.90</AccuracyTouch>
+      <AccuracyShort>0.75</AccuracyShort>
+      <AccuracyMedium>0.79</AccuracyMedium>
+      <AccuracyLong>0.62</AccuracyLong>
+      <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+    </statBases>	
+	<weaponTags>
+		<li>Gun</li>
+	</weaponTags>	
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Bullet_SPAS12_rt</projectileDef>
+        <warmupTime>0.9</warmupTime>
+        <range>17</range>
+		<burstShotCount>1</burstShotCount>
+		<ticksBetweenBurstShots>20</ticksBetweenBurstShots>			
+        <soundCast>SPAS12Shot</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>	
+  </ThingDef>  
+  
+  
+  
+  
+  
+  
+  
+ </ThingDefs> 

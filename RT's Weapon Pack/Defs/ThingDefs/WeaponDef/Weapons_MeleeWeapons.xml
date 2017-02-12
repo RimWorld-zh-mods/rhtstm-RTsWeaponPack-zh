@@ -1,0 +1,784 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ThingDefs>
+
+  <ThingDef Name="BaseMeleeWeapon" Abstract="True">
+    <category>Item</category>
+    <thingClass>ThingWithComps</thingClass>
+    <equipmentType>Primary</equipmentType>
+    <pathCost>10</pathCost>
+    <useHitPoints>True</useHitPoints>
+    <selectable>True</selectable>
+    <graphicData>
+      <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+    </graphicData>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>0.1</Flammability>
+      <DeteriorationRate>1</DeteriorationRate>
+      <SellPriceFactor>0.5</SellPriceFactor>
+    </statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>True</alwaysHaulable>
+    <tickerType>Never</tickerType>
+    <techLevel>Industrial</techLevel>
+    <weaponTags>
+		<li>Melee</li>
+    </weaponTags>
+    <thingCategories>
+      <li>WeaponsMelee</li>
+    </thingCategories>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>ArtName_WeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>ElectricSmithy</li>
+        <li>FueledSmithy</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+    </recipeMaker>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+  </ThingDef>
+
+
+
+  <ThingDef Name="BaseMeleeWeapon_Sharp" ParentName="BaseMeleeWeapon" Abstract="True">
+    <recipeMaker>
+    <defaultIngredientFilter>
+      <categories>
+        <li>Root</li>
+      </categories>
+      <exceptedThingDefs>
+        <li>Silver</li>
+        <li>Gold</li>
+        <li>WoodLog</li>
+      </exceptedThingDefs>
+    </defaultIngredientFilter>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef Name="BaseMeleeWeapon_Blunt" ParentName="BaseMeleeWeapon" Abstract="True">
+    <recipeMaker>
+      <defaultIngredientFilter>
+        <categories>
+          <li>Root</li>
+        </categories>
+        <exceptedThingDefs>
+          <li>Silver</li>
+          <li>Gold</li>
+        </exceptedThingDefs>
+      </defaultIngredientFilter>
+    </recipeMaker>
+  </ThingDef>
+
+  <!-- ============================Sickle================================== -->
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>MeleeWeapon_Sickle</defName>
+    <label>Sickle</label>
+    <description>This is a short-handled farming tool with a semicircular blade.</description>
+    <graphicData>
+      <texPath>Weapon/Sickle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <weaponTags>
+	  <li>Melee</li>
+      <li>Industrial</li>     
+	  <li>Medieval</li>
+    </weaponTags>
+    <soundInteract>InteractPistol</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <tradeability>Sellable</tradeability>
+    <costStuffCount>90</costStuffCount>
+    <statBases>
+      <WorkToMake>25000</WorkToMake>
+      <MeleeWeapon_DamageAmount>6</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2</MeleeWeapon_Cooldown>
+	  <Mass>2</Mass>	  
+    </statBases>
+	<equippedStatOffsets>
+		<PlantWorkSpeed>0.15</PlantWorkSpeed>		 
+		<HarvestFailChance>-0.15</HarvestFailChance>	
+	</equippedStatOffsets>
+	
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+	<smeltProducts>
+		<Steel>3</Steel>
+	</smeltProducts>	
+  </ThingDef> 
+
+
+  
+  <!-- ============================Pickaxe================================== -->
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>MeleeWeapon_Pickaxe</defName>
+    <label>Pickaxe</label>
+    <description>A handy tool for mining. It also can do some damage.</description>
+    <graphicData>
+      <texPath>Weapon/Pickaxe</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <weaponTags>
+	  <li>Melee</li>
+      <li>Industrial</li>     
+	  <li>Medieval</li>
+    </weaponTags>
+    <soundInteract>InteractPistol</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <tradeability>Sellable</tradeability>
+    <costStuffCount>100</costStuffCount>
+    <statBases>
+      <WorkToMake>25000</WorkToMake>
+      <MeleeWeapon_DamageAmount>8</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2</MeleeWeapon_Cooldown>
+	  <Mass>4</Mass>	  
+    </statBases>
+	<equippedStatOffsets>
+		<MiningSpeed>0.35</MiningSpeed>		
+	</equippedStatOffsets>
+	
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Blunt</meleeDamageDef>
+      </li>
+    </verbs>
+	<smeltProducts>
+		<Steel>3</Steel>
+	</smeltProducts>	
+  </ThingDef> 
+   
+  <!-- ============================Butcher Knife================================== -->
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>MeleeWeapon_Butcherknife</defName>
+    <label>Butcher Knife</label>
+    <description>A knife that a good chef must have.</description>
+    <graphicData>
+      <texPath>Weapon/Butcher Knife</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <weaponTags>
+	  <li>Melee</li>
+      <li>Industrial</li>     
+	  <li>Medieval</li>
+    </weaponTags>
+    <soundInteract>InteractPistol</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <tradeability>Sellable</tradeability>
+    <costStuffCount>70</costStuffCount>
+    <statBases>
+      <WorkToMake>20000</WorkToMake>
+      <MeleeWeapon_DamageAmount>10</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>1</MeleeWeapon_Cooldown>
+	  <Mass>1.5</Mass>
+    </statBases>
+	<equippedStatOffsets>
+		<CookSpeed>0.3</CookSpeed>
+		<ButcheryFleshSpeed>0.35</ButcheryFleshSpeed>
+		<ButcheryFleshEfficiency>0.35</ButcheryFleshEfficiency>			
+	</equippedStatOffsets>
+	
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+	<smeltProducts>
+		<Steel>3</Steel>
+	</smeltProducts>	
+  </ThingDef> 
+
+  
+  <!-- ============================Military Shovel================================== -->
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>MeleeWeapon_Militaryshovel</defName>
+    <label>Military Shovel</label>
+    <description>This is a shovel that won't fall apart or let you down during heavy work use.</description>
+    <graphicData>
+      <texPath>Weapon/Military Shovel</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <weaponTags>
+	  <li>Melee</li>
+      <li>Industrial</li>     
+	  <li>Medieval</li>
+    </weaponTags>
+    <soundInteract>InteractPistol</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <tradeability>Sellable</tradeability>
+    <costStuffCount>110</costStuffCount>
+    <statBases>
+      <WorkToMake>25000</WorkToMake>
+      <MeleeWeapon_DamageAmount>20</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2</MeleeWeapon_Cooldown>
+	  <Mass>1.5</Mass>	  
+    </statBases>
+	<equippedStatOffsets>
+		<MoveSpeed>0.15</MoveSpeed>	
+		<PlantWorkSpeed>0.15</PlantWorkSpeed>		
+		<MiningSpeed>0.1</MiningSpeed>		
+	</equippedStatOffsets>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Blunt</meleeDamageDef>
+      </li>
+    </verbs>
+	<smeltProducts>
+		<Steel>7</Steel>
+	</smeltProducts>	
+  </ThingDef>   
+    
+  
+  
+  
+  <!-- ============================Fire Axe================================== -->
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>MeleeWeapon_Fireaxe</defName>
+    <label>Fire Axe</label>
+    <description>This is a stereotypical fireman's axe with a red axe head, silver edge, and a wooden handle.</description>
+    <graphicData>
+      <texPath>Weapon/FireAxe</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <weaponTags>
+	  <li>Melee</li>
+      <li>Industrial</li>
+      
+	  <li>Medieval</li>
+    </weaponTags>
+    <soundInteract>InteractPistol</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <tradeability>Sellable</tradeability>
+    <costStuffCount>100</costStuffCount>
+    <statBases>
+      <WorkToMake>25000</WorkToMake>
+      <MeleeWeapon_DamageAmount>23</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>2</MeleeWeapon_Cooldown>
+	  <Mass>4.5</Mass>	  
+    </statBases>
+	<equippedStatOffsets>
+		<MoveSpeed>0.05</MoveSpeed>
+		<ConstructionSpeed>0.05</ConstructionSpeed>		
+		<HarvestFailChance>-0.05</HarvestFailChance>		
+	</equippedStatOffsets>	
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+	<smeltProducts>
+		<Steel>6</Steel>
+	</smeltProducts>	
+  </ThingDef> 
+
+  
+  <!-- ============================Krambit================================== -->
+
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>MeleeWeapon_Karambit</defName>
+    <label>Karambit</label>
+    <description>The karambit is a small Southeast Asian hand-held, curved knife resembling a claw.</description>
+    <graphicData>
+      <texPath>Weapon/Karambit</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <weaponTags>
+	  <li>Melee</li>
+      <li>Industrial</li>
+      
+	  <li>Medieval</li>
+    </weaponTags>
+    <soundInteract>InteractPistol</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <tradeability>Sellable</tradeability>
+    <costStuffCount>80</costStuffCount>
+    <statBases>
+      <WorkToMake>20000</WorkToMake>
+      <MeleeWeapon_DamageAmount>9</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>0.8</MeleeWeapon_Cooldown>
+	  <Mass>0.02</Mass>	  
+    </statBases>
+	<equippedStatOffsets>
+		<MoveSpeed>0.25</MoveSpeed>	
+		<ButcheryFleshEfficiency>0.28</ButcheryFleshEfficiency>		
+	</equippedStatOffsets>	
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+	<smeltProducts>
+		<Steel>2</Steel>
+	</smeltProducts>	
+  </ThingDef>
+ 
+  
+  
+   <!-- ============================Machete Knife ================================== -->
+
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>MeleeWeapon_Machete</defName>
+    <label>Machete</label>
+    <description>This is a large hatchet-like knife. Frequently used to cut through rain forest undergrowth and for agricultural purposes.</description>
+    <graphicData>
+      <texPath>Weapon/Machete</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <weaponTags>
+	  <li>Melee</li>
+      <li>Industrial</li>
+      
+	  <li>Medieval</li>
+    </weaponTags>
+    <soundInteract>InteractPistol</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <tradeability>Sellable</tradeability>
+    <costStuffCount>85</costStuffCount>
+    <statBases>
+      <WorkToMake>20000</WorkToMake>
+      <MeleeWeapon_DamageAmount>14</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>1.0</MeleeWeapon_Cooldown>
+	  <Mass>0.8</Mass>	  	  
+    </statBases>
+	<equippedStatOffsets>
+		<MoveSpeed>0.1</MoveSpeed>	
+		<MeleeHitChance>0.09</MeleeHitChance>	
+		<ButcheryFleshSpeed>0.08</ButcheryFleshSpeed>
+		<ButcheryFleshEfficiency>-0.05</ButcheryFleshEfficiency>	
+	</equippedStatOffsets>	
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+	<smeltProducts>
+		<Steel>4</Steel>
+	</smeltProducts>	
+  </ThingDef> 
+  
+   <!-- ============================Katana================================== -->
+
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>MeleeWeapon_Katana</defName>
+    <label>Katana</label>
+    <description>Katana were one of the traditionally made Japanese swords that were used by the samurai of feudal Japan.</description>
+    <graphicData>
+      <texPath>Weapon/Katana</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <weaponTags>
+	  <li>Melee</li>
+      <li>Industrial</li>
+      
+	  <li>Medieval</li>
+    </weaponTags>
+    <soundInteract>InteractPistol</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <tradeability>Sellable</tradeability>
+    <costStuffCount>80</costStuffCount>
+    <statBases>
+      <WorkToMake>20000</WorkToMake>
+      <MeleeWeapon_DamageAmount>13</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>0.8</MeleeWeapon_Cooldown>
+		<Mass>1.2</Mass>	  
+    </statBases>
+	<equippedStatOffsets>
+		<MoveSpeed>0.15</MoveSpeed>	
+		<MeleeHitChance>0.1</MeleeHitChance>		
+	</equippedStatOffsets>	
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+	<smeltProducts>
+		<Steel>5</Steel>
+	</smeltProducts>	
+  </ThingDef>
+
+ 
+  <!-- ============================Gerber Survival Knife================================== -->
+
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>MeleeWeapon_Gerber</defName>
+    <label>Gerber Survival Knife</label>
+    <description>A handy survival knife.</description>
+    <graphicData>
+      <texPath>Weapon/GerberSurvivalKnife</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <weaponTags>
+	  <li>Melee</li>
+      <li>Industrial</li>
+      
+	  <li>Medieval</li>
+    </weaponTags>
+    <soundInteract>InteractPistol</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <tradeability>Sellable</tradeability>
+    <costStuffCount>150</costStuffCount>
+    <statBases>
+      <WorkToMake>50000</WorkToMake>
+      <MeleeWeapon_DamageAmount>15</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>1.3</MeleeWeapon_Cooldown>
+	  <Mass>0.4</Mass>	  
+    </statBases>
+	<equippedStatOffsets>
+		<MoveSpeed>0.15</MoveSpeed>	
+		<MeleeHitChance>0.07</MeleeHitChance>
+		<HarvestFailChance>-0.1</HarvestFailChance>		
+	</equippedStatOffsets>	
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Stab</meleeDamageDef>
+      </li>
+    </verbs>
+	<smeltProducts>
+		<Steel>3</Steel>
+	</smeltProducts>	
+  </ThingDef>
+
+
+  <!-- ============================M9 Bayonet================================== -->
+
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>MeleeWeapon_Mbayonet</defName>
+    <label>M9 Bayonet</label>
+    <description>The M9 Bayonet is a multi-purpose knife, adopted in 1986 by the United States. It is a sturdy all purpose tool for a soldier,usefull for combat and utility.</description>
+    <graphicData>
+      <texPath>Weapon/M9_Bayonet</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <weaponTags>
+	  <li>Melee</li>
+      <li>Industrial</li>
+      
+	  <li>Medieval</li>
+    </weaponTags>
+    <soundInteract>InteractPistol</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <tradeability>Sellable</tradeability>
+    <costStuffCount>110</costStuffCount>
+    <statBases>
+      <WorkToMake>40000</WorkToMake>
+      <MeleeWeapon_DamageAmount>13</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>1.0</MeleeWeapon_Cooldown>
+	  <Mass>0.4</Mass>	  
+    </statBases>
+	<equippedStatOffsets>
+		<MoveSpeed>0.15</MoveSpeed>	
+		<MeleeHitChance>0.08</MeleeHitChance>		
+	</equippedStatOffsets>	
+	
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Stab</meleeDamageDef>
+      </li>
+    </verbs>
+	<smeltProducts>
+		<Steel>3</Steel>
+	</smeltProducts>	
+  </ThingDef>
+
+
+  
+    <!-- ============================Crowbar================================== -->
+
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>MeleeWeapon_Crowbar</defName>
+    <label>Crowbar</label>
+    <description>A crowbar,is a tool consisting of a metal bar with a single curved end and flattened points, often with a small fissure on one or both ends for removing nails.Used as both a tool and as a weapon. </description>
+    <graphicData>
+      <texPath>Weapon/Crowbar</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <weaponTags>
+	  <li>Melee</li>
+      <li>Industrial</li>
+      
+	  <li>Medieval</li>
+    </weaponTags>
+    <soundInteract>InteractPistol</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <tradeability>Sellable</tradeability>
+    <costStuffCount>100</costStuffCount>
+    <statBases>
+      <WorkToMake>30000</WorkToMake>
+      <MeleeWeapon_DamageAmount>12</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>1.2</MeleeWeapon_Cooldown>
+	  <Mass>2.2</Mass>	  
+    </statBases>
+	<equippedStatOffsets>
+		<MoveSpeed>0.15</MoveSpeed>
+		<ConstructionSpeed>0.15</ConstructionSpeed>
+		<PlantWorkSpeed>0.1</PlantWorkSpeed>		
+	</equippedStatOffsets>	
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Blunt</meleeDamageDef>
+      </li>
+    </verbs>
+	<smeltProducts>
+		<Steel>4</Steel>
+	</smeltProducts>	
+  </ThingDef>
+
+    <!-- ============================Baton================================== -->
+
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>MeleeWeapon_Baton</defName>
+    <label>Baton</label>
+    <description>This is a club of less than arm's length. They are carried for forced compliance and self-defense.</description>
+    <graphicData>
+      <texPath>Weapon/Baton</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <weaponTags>
+	  <li>Melee</li>
+      <li>Industrial</li>
+      
+	  <li>Medieval</li>
+    </weaponTags>
+    <soundInteract>InteractPistol</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <tradeability>Sellable</tradeability>
+    <costStuffCount>90</costStuffCount>
+    <statBases>
+      <WorkToMake>10000</WorkToMake>
+      <MeleeWeapon_DamageAmount>7</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>0.7</MeleeWeapon_Cooldown>
+	  <Mass>0.6</Mass>	  
+    </statBases>
+	<equippedStatOffsets>
+		<MoveSpeed>0.15</MoveSpeed>	
+		<MeleeHitChance>0.05</MeleeHitChance> 
+	</equippedStatOffsets>	
+	
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      
+      <li>Stony</li>
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Blunt</meleeDamageDef>
+      </li>
+    </verbs>
+	<smeltProducts>
+		<Steel>3</Steel>
+	</smeltProducts>	
+  </ThingDef>
+
+   <!-- ============================Huntsman================================== -->
+
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>MeleeWeapon_Huntsman</defName>
+    <label>Huntsman Knife</label>
+    <description>A knife designed for modern tactical uses, the blade is well suited for a range of both combat and utilitarian needs.</description>
+    <graphicData>
+      <texPath>Weapon/Huntsman</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <weaponTags>
+	  <li>Melee</li>
+      <li>Industrial</li>
+      
+	  <li>Medieval</li>
+    </weaponTags>
+    <soundInteract>InteractPistol</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <tradeability>Sellable</tradeability>
+    <costStuffCount>80</costStuffCount>
+    <statBases>
+      <WorkToMake>30000</WorkToMake>
+      <MeleeWeapon_DamageAmount>18</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>1.5</MeleeWeapon_Cooldown>
+	  <Mass>0.4</Mass>	  
+    </statBases>
+	<equippedStatOffsets>
+		<MoveSpeed>0.12</MoveSpeed>	
+		<MeleeHitChance>0.05</MeleeHitChance>	
+		<ButcheryFleshSpeed>0.15</ButcheryFleshSpeed>
+		<ButcheryFleshEfficiency>0.15</ButcheryFleshEfficiency>	
+	</equippedStatOffsets>	
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+	<smeltProducts>
+		<Steel>4</Steel>
+	</smeltProducts>	
+  </ThingDef>
+  
+  
+  
+     <!-- ============================Khukuri Knife================================== -->
+
+  <ThingDef ParentName="BaseMeleeWeapon_Sharp">
+    <defName>MeleeWeapon_Kuri</defName>
+    <label>Khukuri Knife</label>
+    <description>The khukuri is a knife with an inwardly curved blade, similar to a machete, used as both a tool and as a weapon.</description>
+    <graphicData>
+      <texPath>Weapon/Kuri</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <techLevel>Neolithic</techLevel>
+    <weaponTags>
+	  <li>Melee</li>
+      <li>Industrial</li>
+      
+	  <li>Medieval</li>
+    </weaponTags>
+    <soundInteract>InteractPistol</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <tradeability>Sellable</tradeability>
+    <costStuffCount>80</costStuffCount>
+    <statBases>
+      <WorkToMake>28000</WorkToMake>
+      <MeleeWeapon_DamageAmount>13</MeleeWeapon_DamageAmount>
+      <MeleeWeapon_Cooldown>1.0</MeleeWeapon_Cooldown>
+	  <Mass>0.6</Mass>	  
+    </statBases>
+	<equippedStatOffsets>
+		<MoveSpeed>0.10</MoveSpeed>	
+		<MeleeHitChance>0.09</MeleeHitChance> 
+	</equippedStatOffsets>	
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <stuffCategories>
+      <li>Metallic</li>
+      
+    </stuffCategories>
+    <verbs>
+      <li>
+        <verbClass>Verb_MeleeAttack</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <meleeDamageDef>Cut</meleeDamageDef>
+      </li>
+    </verbs>
+	<smeltProducts>
+		<Steel>4</Steel>
+	</smeltProducts>	
+  </ThingDef>
+  
+</ThingDefs>

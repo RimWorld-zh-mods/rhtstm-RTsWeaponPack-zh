@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+
+	  <ThingDef Name="BaseWeaponRanged_rt" Abstract="True">
+		<category>Item</category>
+		<thingClass>ThingWithComps</thingClass>
+		<equipmentType>Primary</equipmentType>
+		<pathCost>10</pathCost>
+		<useHitPoints>True</useHitPoints>
+		<selectable>True</selectable>
+		<graphicData>
+		  <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+		</graphicData>
+		<drawGUIOverlay>true</drawGUIOverlay>
+		<statBases>
+		  <MaxHitPoints>100</MaxHitPoints>
+		  <Flammability>1.0</Flammability>
+		  <DeteriorationRate>1</DeteriorationRate>
+		  <SellPriceFactor>0.5</SellPriceFactor>
+		</statBases>
+		<smeltable>True</smeltable>	
+		<costList>
+			<Steel>30</Steel>
+			<Component>2</Component>
+		</costList>		
+		<altitudeLayer>Item</altitudeLayer>
+		<alwaysHaulable>True</alwaysHaulable>
+		<tickerType>Never</tickerType>
+		<techLevel>Industrial</techLevel>
+		<thingCategories>
+		  <li>WeaponsRanged</li>
+		</thingCategories>
+		<inspectorTabs>
+		  <li>ITab_Art</li>
+		</inspectorTabs>
+		<comps>
+		  <li Class="CompProperties_Forbiddable"/>
+		  <li>
+			<compClass>CompEquippable</compClass>
+		  </li>
+		  <li>
+			<compClass>CompQuality</compClass>
+		  </li>
+		  <li Class="CompProperties_Art">
+			<nameMaker>ArtName_WeaponGun</nameMaker>
+			<descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+			<minQualityForArtistic>Excellent</minQualityForArtistic>
+		  </li>
+		</comps>
+	  </ThingDef>
+
+	  <ThingDef Name="BaseMakeableWeaponRanged_rt" ParentName="BaseWeaponRanged_rt" Abstract="True">
+		<recipeMaker>
+		  <workSpeedStat>SmithingSpeed</workSpeedStat>
+		  <workSkill>Crafting</workSkill>
+		  <effectWorking>Smith</effectWorking>
+		  <soundWorking>Recipe_Smith</soundWorking>
+		  <recipeUsers>
+			<li>ElectricSmithy</li>
+			<li>FueledSmithy</li>
+		  </recipeUsers>
+		  <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+		</recipeMaker>
+	  </ThingDef>
+
+
+	  <ThingDef Name="BaseHumanWeaponRanged_rt" ParentName="BaseWeaponRanged_rt" Abstract="True">
+		<weaponTags>
+		  <li>Gun</li>
+		</weaponTags>
+	  </ThingDef>
+	  
+	  <ThingDef Name="BaseHumanMakeableWeaponRanged_rt" ParentName="BaseMakeableWeaponRanged_rt" Abstract="True">
+		<weaponTags>
+		  <li>Gun</li>
+		</weaponTags>
+	  </ThingDef>	  
+  
+  <ThingDef Name="BaseRangeBullet" Abstract="True">
+    <category>Projectile</category>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Projectile</altitudeLayer>
+    <thingClass>Bullet</thingClass>
+    <label>bullet</label>
+    <useHitPoints>False</useHitPoints>
+    <neverMultiSelect>True</neverMultiSelect>
+    <graphicData>
+      <shaderType>Transparent</shaderType>
+    </graphicData>
+  </ThingDef>	  
+	  
+<!-- =============Compoundbow============== -->
+
+  <ThingDef ParentName="BaseRangeBullet">
+    <defName>Arrow_Compound_rt</defName>
+    <label>Compoundbow Arrow</label>
+    <graphicData>
+      <texPath>Projectile/Arrow_Compound_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Arrow</damageDef>
+      <damageAmountBase>20</damageAmountBase>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanWeaponRanged_rt">
+    <defName>Bow_Compound_rt</defName>
+    <label>Compound Bow</label>
+    <graphicData>
+      <texPath>Weapon/CompoundBow</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This is a bow that uses a levering system, usually of cables and pulleys, to bend the limbs. The pulley/cam system grants the wielder a mechanical advantage, and so the limbs of a compound bow are much stiffer than those of a recurve bow or longbow.</description>
+    <soundInteract>BowLarge</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+      <Mass>2.5</Mass>
+      <MarketValue>300</MarketValue>
+      <AccuracyTouch>0.30</AccuracyTouch>
+      <AccuracyShort>0.64</AccuracyShort>
+      <AccuracyMedium>0.95</AccuracyMedium>
+      <AccuracyLong>0.68</AccuracyLong>
+      <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+    </statBases>
+	<equippedStatOffsets>
+		<MoveSpeed>0.3</MoveSpeed>
+	</equippedStatOffsets>	
+    <weaponTags>
+      <li>RangedWeapon</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Arrow_Compound_rt</projectileDef>
+		<warmupTime>1</warmupTime>
+        <range>29</range>
+        <soundCast>BowLarge</soundCast>
+		<burstShotCount>1</burstShotCount>
+		<ticksBetweenBurstShots>5</ticksBetweenBurstShots>			
+      </li>
+    </verbs>	
+  </ThingDef>
+
+ <!-- =============Cross Bow============== -->
+
+  <ThingDef ParentName="BaseRangeBullet">
+    <defName>Arrow_TCrossbow_rt</defName>
+    <label>Tactical Crossbow Arrow</label>
+    <graphicData>
+      <texPath>Projectile/Arrow_TCrossbow_rt</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Arrow</damageDef>
+      <damageAmountBase>10</damageAmountBase>
+      <speed>80</speed>	  
+    </projectile>
+  </ThingDef>
+  <ThingDef ParentName="BaseHumanWeaponRanged_rt">
+    <defName>Bow_TCrossbow_rt</defName>
+    <label>Tactical Crossbow</label>
+    <graphicData>
+      <texPath>Weapon/Tactical Crossbow</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <description>This type of crossbows are used for shooting sports and bowhunting in the modern world.</description>
+    <soundInteract>BowLarge</soundInteract>
+    <canBeSpawningInventory>true</canBeSpawningInventory>
+    <statBases>
+      <Mass>3</Mass>
+      <MarketValue>450</MarketValue>
+      <AccuracyTouch>0.50</AccuracyTouch>
+      <AccuracyShort>0.64</AccuracyShort>
+      <AccuracyMedium>0.75</AccuracyMedium>
+      <AccuracyLong>0.90</AccuracyLong>
+      <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+    </statBases>
+	<equippedStatOffsets>
+		<MoveSpeed>0.25</MoveSpeed>
+	</equippedStatOffsets>	
+    <weaponTags>
+      <li>RangedWeapon</li>
+    </weaponTags>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <projectileDef>Arrow_TCrossbow_rt</projectileDef>
+		<warmupTime>2</warmupTime>
+        <range>38</range>
+        <soundCast>BowLarge</soundCast>
+		<burstShotCount>3</burstShotCount>
+		<ticksBetweenBurstShots>45</ticksBetweenBurstShots>			
+      </li>
+    </verbs>	
+  </ThingDef>
+ 
+  
+ </ThingDefs> 

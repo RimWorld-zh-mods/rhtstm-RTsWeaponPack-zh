@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RecipeDefs>
+
+<!-- ===========--> 
+     <RecipeDef>
+    <defName>FiveSevenCraft</defName>
+    <label>Make FN Five Seven</label>
+    <description>Craft FN Five Seven.</description>
+    <jobString>Making FN Five Seven.</jobString>
+	<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+	<workSpeedStat>SmithingSpeed</workSpeedStat>
+    <workAmount>32000</workAmount>
+	<workSkill>Crafting</workSkill>
+    <products>
+        <Gun_FiveSeven_rt>1</Gun_FiveSeven_rt>
+    </products>
+    <ingredients>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Steel</li>
+				</thingDefs>
+			</filter>
+			<count>45</count>
+		</li>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Component</li>
+				</thingDefs>
+			</filter>
+			<count>2</count>
+		</li>
+    </ingredients>
+	<fixedIngredientFilter>
+         <thingDefs>
+            <li>Steel</li>
+			<li>Component</li>
+         </thingDefs>
+    </fixedIngredientFilter>
+	<recipeUsers>
+		<li>WeaponAssemblyTable_RT</li>
+	</recipeUsers>
+	<researchPrerequisite>Pistols_RT</researchPrerequisite>
+	<skillRequirements>
+		<li>
+			<skill>Crafting</skill>
+			<minLevel>3</minLevel>
+		</li>
+	</skillRequirements>
+  </RecipeDef>
+
+
+<!-- ===========--> 
+     <RecipeDef>
+    <defName>Glock17Craft</defName>
+    <label>Make Glock 17</label>
+    <description>Craft Glock 17.</description>
+    <jobString>Making Glock 17.</jobString>
+	<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+	<workSpeedStat>SmithingSpeed</workSpeedStat>
+    <workAmount>30000</workAmount>
+	<workSkill>Crafting</workSkill>
+    <products>
+        <Gun_Glock17_rt>1</Gun_Glock17_rt>
+    </products>
+    <ingredients>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Steel</li>
+				</thingDefs>
+			</filter>
+			<count>40</count>
+		</li>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Component</li>
+				</thingDefs>
+			</filter>
+			<count>2</count>
+		</li>
+    </ingredients>
+	<fixedIngredientFilter>
+         <thingDefs>
+            <li>Steel</li>
+			<li>Component</li>
+         </thingDefs>
+    </fixedIngredientFilter>
+	<recipeUsers>
+		<li>WeaponAssemblyTable_RT</li>
+	</recipeUsers>
+	<researchPrerequisite>Pistols_RT</researchPrerequisite>
+	<skillRequirements>
+		<li>
+			<skill>Crafting</skill>
+			<minLevel>3</minLevel>
+		</li>
+	</skillRequirements>
+  </RecipeDef>
+ 
+ 
+<!-- ===========--> 
+  <RecipeDef>
+    <defName>SWMagnumCraft</defName>
+    <label>Make SW Magnum</label>
+    <description>Craft SW Magnum.</description>
+    <jobString>Making SW Magnum.</jobString>
+	<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+	<workSpeedStat>SmithingSpeed</workSpeedStat>
+    <workAmount>36000</workAmount>
+	<workSkill>Crafting</workSkill>
+    <products>
+        <Gun_SWMagnum_rt>1</Gun_SWMagnum_rt>
+    </products>
+    <ingredients>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Steel</li>
+				</thingDefs>
+			</filter>
+			<count>60</count>
+		</li>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Component</li>
+				</thingDefs>
+			</filter>
+			<count>2</count>
+		</li>
+    </ingredients>
+	<fixedIngredientFilter>
+         <thingDefs>
+            <li>Steel</li>
+			<li>Component</li>
+         </thingDefs>
+    </fixedIngredientFilter>
+	<recipeUsers>
+		<li>WeaponAssemblyTable_RT</li>
+	</recipeUsers>
+	<researchPrerequisite>Pistols_RT</researchPrerequisite>
+	<skillRequirements>
+		<li>
+			<skill>Crafting</skill>
+			<minLevel>3</minLevel>
+		</li>
+	</skillRequirements>
+  </RecipeDef>
+  
+   
+ 
+ 
+ 
+<!-- ===========--> 
+  <RecipeDef>
+    <defName>DeagleCraft</defName>
+    <label>Make Desert Eagle</label>
+    <description>Craft Desert Eagle.</description>
+    <jobString>Making Desert Eagle.</jobString>
+	<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+	<workSpeedStat>SmithingSpeed</workSpeedStat>
+    <workAmount>36000</workAmount>
+	<workSkill>Crafting</workSkill>
+    <products>
+        <Gun_Deagle_rt>1</Gun_Deagle_rt>
+    </products>
+    <ingredients>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Steel</li>
+				</thingDefs>
+			</filter>
+			<count>60</count>
+		</li>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Component</li>
+				</thingDefs>
+			</filter>
+			<count>2</count>
+		</li>
+    </ingredients>
+	<fixedIngredientFilter>
+         <thingDefs>
+            <li>Steel</li>
+			<li>Component</li>
+         </thingDefs>
+    </fixedIngredientFilter>
+	<recipeUsers>
+		<li>WeaponAssemblyTable_RT</li>
+	</recipeUsers>
+	<researchPrerequisite>Pistols_RT</researchPrerequisite>
+	<skillRequirements>
+		<li>
+			<skill>Crafting</skill>
+			<minLevel>3</minLevel>
+		</li>
+	</skillRequirements>
+  </RecipeDef>
+  
+  
+  
+<!-- ===========--> 
+  <RecipeDef>
+    <defName>ColtPythonRevolverCraft</defName>
+    <label>Make ColtPython Revolver</label>
+    <description>Craft ColtPython Revolver.</description>
+    <jobString>Making ColtPython Revolver.</jobString>
+	<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+	<workSpeedStat>SmithingSpeed</workSpeedStat>
+    <workAmount>34000</workAmount>
+	<workSkill>Crafting</workSkill>
+    <products>
+        <Gun_ColtPythonRevolver_rt>1</Gun_ColtPythonRevolver_rt>
+    </products>
+    <ingredients>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Steel</li>
+				</thingDefs>
+			</filter>
+			<count>60</count>
+		</li>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Component</li>
+				</thingDefs>
+			</filter>
+			<count>2</count>
+		</li>
+    </ingredients>
+	<fixedIngredientFilter>
+         <thingDefs>
+            <li>Steel</li>
+			<li>Component</li>
+         </thingDefs>
+    </fixedIngredientFilter>
+	<recipeUsers>
+		<li>WeaponAssemblyTable_RT</li>
+	</recipeUsers>
+	<researchPrerequisite>Pistols_RT</researchPrerequisite>
+	<skillRequirements>
+		<li>
+			<skill>Crafting</skill>
+			<minLevel>3</minLevel>
+		</li>
+	</skillRequirements>
+  </RecipeDef>
+  
+<!-- ===========--> 
+  <RecipeDef>
+    <defName>M1911Craft</defName>
+    <label>Make M1911</label>
+    <description>Craft M1911.</description>
+    <jobString>Making M1911.</jobString>
+	<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+	<workSpeedStat>SmithingSpeed</workSpeedStat>
+    <workAmount>31000</workAmount>
+	<workSkill>Crafting</workSkill>
+    <products>
+        <Gun_M1911_rt>1</Gun_M1911_rt>
+    </products>
+    <ingredients>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Steel</li>
+				</thingDefs>
+			</filter>
+			<count>40</count>
+		</li>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Component</li>
+				</thingDefs>
+			</filter>
+			<count>2</count>
+		</li>
+    </ingredients>
+	<fixedIngredientFilter>
+         <thingDefs>
+            <li>Steel</li>
+			<li>Component</li>
+         </thingDefs>
+    </fixedIngredientFilter>
+	<recipeUsers>
+		<li>WeaponAssemblyTable_RT</li>
+	</recipeUsers>
+	<researchPrerequisite>Pistols_RT</researchPrerequisite>
+	<skillRequirements>
+		<li>
+			<skill>Crafting</skill>
+			<minLevel>3</minLevel>
+		</li>
+	</skillRequirements>
+  </RecipeDef>  
+  
+  
+<!-- ===========--> 
+  <RecipeDef>
+    <defName>LugerP08Craft</defName>
+    <label>Make Luger P08</label>
+    <description>Craft Luger P08.</description>
+    <jobString>Making Luger P08.</jobString>
+	<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+	<workSpeedStat>SmithingSpeed</workSpeedStat>
+    <workAmount>31000</workAmount>
+	<workSkill>Crafting</workSkill>
+    <products>
+        <Gun_LugerP08_rt>1</Gun_LugerP08_rt>
+    </products>
+    <ingredients>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Steel</li>
+				</thingDefs>
+			</filter>
+			<count>35</count>
+		</li>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Component</li>
+				</thingDefs>
+			</filter>
+			<count>3</count>
+		</li>
+    </ingredients>
+	<fixedIngredientFilter>
+         <thingDefs>
+            <li>Steel</li>
+			<li>Component</li>
+         </thingDefs>
+    </fixedIngredientFilter>
+	<recipeUsers>
+		<li>WeaponAssemblyTable_RT</li>
+	</recipeUsers>
+	<researchPrerequisite>Pistols_RT</researchPrerequisite>
+	<skillRequirements>
+		<li>
+			<skill>Crafting</skill>
+			<minLevel>3</minLevel>
+		</li>
+	</skillRequirements>
+  </RecipeDef>    
+  
+<!-- ===========--> 
+  <RecipeDef>
+    <defName>DualBerettasCraft</defName>
+    <label>Make DualBerettas</label>
+    <description>Craft DualBerettas.</description>
+    <jobString>Making DualBerettas.</jobString>
+	<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
+	<workSpeedStat>SmithingSpeed</workSpeedStat>
+    <workAmount>41000</workAmount>
+	<workSkill>Crafting</workSkill>
+    <products>
+        <Gun_DualBerettas_rt>1</Gun_DualBerettas_rt>
+    </products>
+    <ingredients>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Steel</li>
+				</thingDefs>
+			</filter>
+			<count>60</count>
+		</li>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>Component</li>
+				</thingDefs>
+			</filter>
+			<count>3</count>
+		</li>
+    </ingredients>
+	<fixedIngredientFilter>
+         <thingDefs>
+            <li>Steel</li>
+			<li>Component</li>
+         </thingDefs>
+    </fixedIngredientFilter>
+	<recipeUsers>
+		<li>WeaponAssemblyTable_RT</li>
+	</recipeUsers>
+	<researchPrerequisite>Pistols_RT</researchPrerequisite>
+	<skillRequirements>
+		<li>
+			<skill>Crafting</skill>
+			<minLevel>3</minLevel>
+		</li>
+	</skillRequirements>
+  </RecipeDef>   
+  
+  
+  
+  
+  
+</RecipeDefs>
